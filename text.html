@@ -1,0 +1,159 @@
+# SMOOVE RIDE — Booking Ride Web Application
+
+This repository contains a production-ready web application for **SMOOVE RIDE**, built for real-time ride booking and driver tracking.
+
+---
+
+### Overview
+SMOOVE RIDE provides an easy and efficient way for passengers to book rides, get matched with nearby drivers, and follow their trips in real time. The application is fully responsive and optimized for both desktop and mobile users.
+
+---
+
+### Key Features
+- Pickup and destination input fields
+- Live map display with driver movement
+- Car category selection (Economy, Comfort, Executive)
+- Real-time driver assignment and ETA updates
+- Passenger details form (name, phone)
+- Trip progress and completion simulation
+- Blue and white brand design with SMOOVE RIDE logo area
+
+---
+
+### Technology Stack
+- **Frontend:** React + Tailwind CSS
+- **Map Engine:** Mapbox GL JS
+- **UI Enhancements:** Tippy.js for tooltips
+
+---
+
+### Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/smoove-ride.git
+   cd smoove-ride
+   ```
+2. Create an `.env` file with your Mapbox token:
+   ```bash
+   VITE_MAPBOX_TOKEN=your_mapbox_token_here
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+Access your app on `http://localhost:5173`.
+
+---
+
+### Deployment Configuration
+
+#### ▸ Vercel Deployment
+1. Create a Vercel account and log in.
+2. Click **New Project → Import Git Repository**.
+3. Select your `smoove-ride` repository.
+4. Add environment variable:
+   - Key: `VITE_MAPBOX_TOKEN`
+   - Value: your Mapbox token
+5. Click **Deploy**.
+
+Vercel will automatically detect the React + Vite configuration and handle all build settings.
+
+#### ▸ Netlify Deployment
+1. Log in to your [Netlify Dashboard](https://app.netlify.com/).
+2. Select **Add new site → Import from Git**.
+3. Connect your `smoove-ride` repository.
+4. Set the build command and directory:
+   - **Build Command:** `npm run build`
+   - **Publish Directory:** `dist`
+5. Add environment variable:
+   - Key: `VITE_MAPBOX_TOKEN`
+   - Value: your Mapbox token
+6. Click **Deploy Site**.
+
+Netlify will build and host your SMOOVE RIDE app automatically.
+
+#### ▸ Manual Hosting (Custom Server)
+1. Run the build process:
+   ```bash
+   npm run build
+   ```
+2. Upload the contents of the `dist` folder to your hosting server.
+3. Make sure your domain (e.g., `smooveride.com`) points to the folder containing the build files.
+
+---
+
+### Custom Domain Setup Guide
+
+#### ▸ Buying a Domain
+You can purchase a domain name such as `smooveride.com` from any domain registrar like:
+- [Namecheap](https://www.namecheap.com)
+- [Google Domains](https://domains.google)
+- [GoDaddy](https://www.godaddy.com)
+
+#### ▸ Connecting Domain to Vercel
+1. Log in to your Vercel account.
+2. Go to the **Domains** section.
+3. Click **Add Domain** and type your domain name (e.g., `smooveride.com`).
+4. Copy the DNS records that Vercel provides.
+5. Go to your domain registrar (e.g., Namecheap) and open DNS settings.
+6. Add the provided DNS records:
+   - Type: `A` or `CNAME`
+   - Name: `@` or your subdomain (e.g., `www`)
+   - Value: the Vercel IP or URL provided.
+7. Wait a few minutes for propagation (can take up to 24 hours).
+8. Once verified, your domain will be connected to your Vercel-hosted SMOOVE RIDE app.
+
+#### ▸ Connecting Domain to Netlify
+1. In your Netlify dashboard, go to your site’s **Domain Settings**.
+2. Click **Add Custom Domain** and enter `smooveride.com`.
+3. Follow the prompts to verify ownership.
+4. Netlify will give you DNS records to add to your domain registrar.
+5. After propagation, your domain will be live.
+
+#### ▸ SSL Certificate Setup (HTTPS)
+Both **Vercel** and **Netlify** automatically issue and renew free SSL certificates through **Let’s Encrypt**, ensuring your domain uses HTTPS.
+
+If you are using a custom server:
+1. Install [Certbot](https://certbot.eff.org/).
+2. Run the following (for Nginx example):
+   ```bash
+   sudo certbot --nginx -d smooveride.com -d www.smooveride.com
+   ```
+3. Certbot will automatically configure and enable HTTPS.
+
+Your site will now be securely accessible at **https://smooveride.com**.
+
+---
+
+### DNS Record Template
+Below is a ready-to-use DNS template you can copy and paste into your registrar (Namecheap, GoDaddy, or Google Domains):
+
+| Type  | Host/Name | Value/Points To                | TTL     | Purpose               |
+|-------|------------|--------------------------------|----------|------------------------|
+| A     | @          | 76.76.21.21                   | Automatic | Vercel root domain    |
+| CNAME | www        | cname.vercel-dns.com           | Automatic | Redirect to Vercel app|
+| TXT   | _vercel    | (optional verification token) | Automatic | Domain verification   |
+| TXT   | _netlify   | (optional verification token) | Automatic | For Netlify setup     |
+
+✅ **Tip:** If you use **Netlify**, replace the `A` record with the one Netlify provides (often similar to `104.198.14.52`).
+
+After adding these records, wait for propagation (from 10 minutes to 24 hours). Once verified, your domain will go live automatically.
+
+---
+
+### Next Steps
+- Integrate backend services for live driver tracking and payments.
+- Add authentication for passengers and drivers.
+- Connect booking data to an admin dashboard.
+- Launch mobile app version for Android and iOS.
+
+---
+
+### Brand Footer
+**SMOOVE RIDE** — Smooth, Safe, and Always On Time.  
+© 2025 SMOOVE RIDE Technologies. All rights reserved.
